@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hinger's Brunnenservice – Brunnen neu erleben</title>
+    <meta name="description" content="Hinger's Brunnenservice: Reinigung, Restaurierung, Wartung und Saisonservice für Innen- und Außenbrunnen in höchster Qualität.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <script>
+        window.tailwind = window.tailwind || {};
+        window.tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: '#6ec5d6',
+                        'brand-dark': '#2f8aa4',
+                        'brand-light': '#e9f7fb',
+                        accent: '#9bd7c1',
+                        graphite: '#2b3a44'
+                    },
+                    fontFamily: {
+                        sans: ['Manrope', 'ui-sans-serif', 'system-ui'],
+                        display: ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css" integrity="sha256-4FB6G1nyMbkQOAz/tYsJr1K4Rmo5FEMAuC8W9jAqTd8=" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+<body class="bg-white text-graphite">
+    <!-- Kontaktleiste -->
+    <div id="contact-bar" class="fixed top-0 inset-x-0 z-40 bg-white/90 backdrop-blur border-b border-brand/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between text-sm h-10">
+            <div class="flex items-center gap-6">
+                <a href="mailto:office@revisage.com" class="group flex items-center gap-2 font-medium text-brand hover:text-brand-dark transition-colors">
+                    <span class="rounded-full bg-brand/10 p-2 text-brand group-hover:scale-110 transition-transform"><i class="fa-solid fa-envelope"></i></span>
+                    office@revisage.com
+                </a>
+                <a href="tel:+432236908008" class="group hidden md:flex items-center gap-2 font-medium text-brand hover:text-brand-dark transition-colors">
+                    <span class="rounded-full bg-brand/10 p-2 text-brand group-hover:scale-110 transition-transform"><i class="fa-solid fa-phone"></i></span>
+                    +43 (0) 2236 90 8008
+                </a>
+            </div>
+            <div class="hidden sm:flex items-center gap-2 text-xs uppercase tracking-wide text-graphite/70">
+                <span class="inline-flex items-center gap-2"><i class="fa-regular fa-clock text-brand"></i> MO-FR 09:00-16:00 UHR / SA 09:00-14:00 UHR</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <header id="site-header" class="fixed top-10 left-0 right-0 z-30 bg-white/95 backdrop-blur shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="#hero" class="flex items-center gap-3" aria-label="Startseite">
+                    <img src="images/logo.jpg.png" alt="Hinger's Brunnenservice Logo" class="h-12 w-auto object-contain logo-animate">
+                </a>
+                <nav aria-label="Hauptnavigation" class="hidden lg:flex items-center gap-10 text-sm font-semibold tracking-wide text-graphite/80">
+                    <a href="#hero" class="nav-link">Home</a>
+                    <a href="#services" class="nav-link">Dienstleistungen</a>
+                    <a href="#about" class="nav-link">Über uns</a>
+                    <a href="#projects" class="nav-link">Galerie</a>
+                    <a href="#faq" class="nav-link">FAQ</a>
+                    <a href="#contact" class="nav-link">Kontakt</a>
+                </nav>
+                <button id="mobile-nav-toggle" class="lg:hidden p-2 text-graphite hover:text-brand transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand">
+                    <i class="fa-solid fa-bars text-lg"></i>
+                </button>
+            </div>
+            <div id="mobile-nav" class="lg:hidden overflow-hidden max-h-0 transition-[max-height] duration-500 ease-in-out">
+                <button id="mobile-nav-close" aria-label="Mobiles Menü schließen">
+                    <i class="fa-solid fa-times text-2xl text-graphite"></i>
+                </button>
+                <nav class="flex flex-col gap-4 pb-6 text-base font-semibold text-graphite/80">
+                    <a href="#hero" class="mobile-nav-link">Home</a>
+                    <a href="#services" class="mobile-nav-link">Dienstleistungen</a>
+                    <a href="#about" class="mobile-nav-link">Über uns</a>
+                    <a href="#projects" class="mobile-nav-link">Galerie</a>
+                    <a href="#faq" class="mobile-nav-link">FAQ</a>
+                    <a href="#contact" class="mobile-nav-link">Kontakt</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-32 overflow-x-hidden">
+        <!-- Hero -->
+        <section id="hero" class="relative isolate overflow-hidden" data-animate="fade-up">
+            <div class="absolute inset-0 bg-gradient-to-br from-brand-light via-white to-white"></div>
+            <div class="absolute top-0 left-0 right-0 h-40 bg-[url('https://images.unsplash.com/photo-1470732321678-b2d5443a50f0?auto=format&fit=crop&w=1200&q=80')] opacity-10 bg-cover bg-center mix-blend-overlay"></div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div class="space-y-8">
+                        <span class="inline-flex items-center gap-2 rounded-full bg-brand/10 text-brand px-4 py-2 text-sm font-semibold">Wir, Hinger's Brunnenshop, erweitern mit unserer Serviceseite unseren Webauftritt weiter.</span>
+                        <h1 class="text-4xl sm:text-5xl font-display text-graphite leading-tight">Brunnenservice mit Herz – Reinigung, Pflege und Restaurierung</h1>
+                        <p class="text-lg text-graphite/70 max-w-xl">Ihr Zierbrunnen verdient Aufmerksamkeit: Wir übernehmen die professionelle Brunnenreinigung, liebevolle Restaurierung und regelmäßige Wartung – für dauerhaft schöne Wasserspiele im Garten oder Innenbereich.</p>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <a href="#contact" class="btn-primary">Jetzt anfragen</a>
+                            <a href="#projects" class="btn-secondary">Unsere Projekte ansehen</a>
+                        </div>
+                        <div class="grid grid-cols-3 gap-4">
+                            <div class="kpi-card">
+                                <span class="kpi-number" data-target="59937">0</span>
+                                <p class="kpi-label">Kunden alle Shops</p>
+                            </div>
+                            <div class="kpi-card">
+                                <span class="kpi-number" data-target="583">0</span>
+                                <p class="kpi-label">Brunnen gepflegt</p>
+                            </div>
+                            <div class="kpi-card">
+                                <span class="kpi-number" data-target="25">0</span>
+                                <p class="kpi-label">Jahre Erfahrung</p>
+                            </div>
+                        </div>
+                        <!-- Unsere Shops -->
+                        <div class="pt-6 text-center">
+                            <h3 class="text-lg font-semibold text-graphite mb-4">Unsere Onlineshops</h3>
+                            <div class="flex justify-center gap-4">
+                                <a href="https://www.zimmerbrunnen.co.at/" target="_blank" rel="noopener noreferrer" class="btn-secondary py-2 px-6 text-sm">Zimmerbrunnen</a>
+                                <a href="https://www.gartenbrunnen.at/" target="_blank" rel="noopener noreferrer" class="btn-secondary py-2 px-6 text-sm">Gartenbrunnen</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <div class="hero-wave" aria-hidden="true">
+                            <canvas id="water-canvas" class="absolute inset-0 w-full h-full"></canvas>
+                            <div class="absolute inset-6 rounded-3xl bg-white/60 backdrop-blur border border-white/30 shadow-2xl overflow-hidden">
+                                <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+                                    <source src="images/edelstahl-wassertor.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                        <div class="absolute -bottom-10 -left-8 w-36 h-36 bg-brand-light rounded-full blur-3xl opacity-60"></div>
+                        <div class="absolute -top-12 -right-10 w-48 h-48 bg-accent/40 rounded-full blur-3xl opacity-50"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dienstleistungen Slider -->
+        <section id="services" class="py-24 bg-white" data-animate="fade-up">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-start justify-between gap-6 mb-12">
+                    <div>
+                        <span class="section-eyebrow">Unsere Leistungen</span>
+                        <h2 class="section-title">Passgenauer Service rund um Ihren Brunnen</h2>
+                        <p class="section-subtitle max-w-2xl">Wir vereinen handwerkliche Perfektion mit einem Sinn für Ästhetik. Jede Anlage erhält die Aufmerksamkeit, die sie verdient – von der Detailpflege bis zur kompletten Restaurierung.</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <button id="service-prev" class="slider-control" aria-label="Vorherige Dienstleistung"><i class="fa-solid fa-arrow-left"></i></button>
+                        <button id="service-next" class="slider-control" aria-label="Nächste Dienstleistung"><i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                </div>
+                <div class="relative slider-viewport">
+                    <div id="service-slider" class="slider" role="list">
+                        <article class="service-card" role="listitem">
+                            <div class="service-icon"><i class="fa-solid fa-droplet"></i></div>
+                            <h3>Brunnenreinigung</h3>
+                            <p>Schonende Tiefenreinigung, Algen- und Kalkentfernung sowie Wasserqualitätskontrolle – für kristallklare Ergebnisse.</p>
+                            <ul>
+                                <li>Demontage & Reinigung aller Komponenten</li>
+                                <li>Filter- & Pumpenservice</li>
+                                <li>Pflegeprodukte für alle sturen Ablagerungen</li>
+                            </ul>
+                        </article>
+                        <article class="service-card" role="listitem">
+                            <div class="service-icon"><i class="fa-solid fa-hand-sparkles"></i></div>
+                            <h3>Restaurierung</h3>
+                            <p>Behutsame Restaurierungen historischer und moderner Brunnenanlagen mit Respekt vor Material und Design.</p>
+                            <ul>
+                                <li>Stein- & Metallbearbeitung</li>
+                                <li>Farb- und Oberflächenmatching</li>
+                                <li>2-Harz-Komponenten Mix für lange Haftzeiten</li>
+                            </ul>
+                        </article>
+                        <article class="service-card" role="listitem">
+                            <div class="service-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+                            <h3>Wartung & Service</h3>
+                            <p>Proaktive Kontrolle, schnelle Reparaturen und nachhaltige Pflegepläne für private und gewerbliche Anlagen.</p>
+                            <ul>
+                                <li>Regelmäßige Funktionschecks</li>
+                                <li>Einfache Pflege und Reparaturen</li>
+                                <li>Individuelle Serviceverträge</li>
+                            </ul>
+                        </article>
+                        <article class="service-card" role="listitem">
+                            <div class="service-icon"><i class="fa-solid fa-snowflake"></i></div>
+                            <h3>Ein- & Auswinterung</h3>
+                            <p>Wetterangepasste Planung, vollständige Entleerung und sichere Wiederinbetriebnahme für jede Saison.</p>
+                            <ul>
+                                <li>Frostschutz & Dichtheitsprüfung</li>
+                                <li>Einwinterung der Pumpe und anderer Bestandteile</li>
+                                <li>Frühlings-Check & Start-up</li>
+                            </ul>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Über uns -->
+        <section id="about" class="py-24 bg-brand-light/40" data-animate="fade-up">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                <div class="lg:col-span-5 relative">
+                    <div class="rounded-3xl overflow-hidden shadow-xl enlarged-photo">
+                        <img src="images/teamphoto.png" alt="Team von Hinger's Brunnenservice bei der Arbeit" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute -bottom-10 -left-8 bg-white shadow-lg rounded-2xl px-6 py-4 flex items-center gap-4">
+                        <span class="w-12 h-12 rounded-full bg-brand/10 text-brand flex items-center justify-center text-xl"><i class="fa-solid fa-leaf"></i></span>
+                        <p class="text-sm font-semibold text-graphite/80">Seit über 20 Jahren mit voller Leidenschaft dabei.</p>
+                    </div>
+                </div>
+                <div class="lg:col-span-7 space-y-8">
+                    <span class="section-eyebrow">Über uns</span>
+                    <h2 class="section-title">Tradition, Leidenschaft & Präzision im Umgang mit Wasser</h2>
+                    <p class="text-lg text-graphite/70">Seit über zwei Jahrzehnten verbinden wir traditionelles Handwerk mit modernster Technik. Ob luxuriöse Indoor-Wasserwand oder historischer Outdoor-Brunnen – wir bewahren die Seele jeder Anlage und sorgen für ein unvergleichliches Wassererlebnis.</p>
+                    <div class="grid grid-cols-2 gap-4 sm:gap-6">
+                        <div class="info-badge" data-animate-stagger>
+                            <span><i class="fa-solid fa-certificate"></i></span>
+                            <h3>Zertifiziert</h3>
+                            <p>Geprüfte Fachbetriebe für Wassertechnik & Restaurierung.</p>
+                        </div>
+                        <div class="info-badge" data-animate-stagger>
+                            <span><i class="fa-solid fa-shield-heart"></i></span>
+                            <h3>Zuverlässig</h3>
+                            <p>Persönliche Ansprechpartner & transparente Abläufe.</p>
+                        </div>
+                        <div class="info-badge" data-animate-stagger>
+                            <span><i class="fa-solid fa-seedling"></i></span>
+                            <h3>Marktführer</h3>
+                            <p>Mit unseren Zimmerbrunnen- und Gartenbrunnenshops etliche Erfahrungswerte</p>
+                        </div>
+                        <div class="info-badge" data-animate-stagger>
+                            <span><i class="fa-solid fa-calendar-check"></i></span>
+                            <h3>Erfahrung</h3>
+                            <p>25 Jahre Expertise & laufende Weiterbildungen.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projekte -->
+        <section id="projects" class="py-24 bg-white" data-animate="fade-up">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                    <span class="section-eyebrow">Unsere Projekte</span>
+                    <h2 class="section-title">Wasserwelten mit Charakter – Einblicke in unsere Arbeit</h2>
+                    <p class="section-subtitle">Interaktive Vorher-Nachher-Einblicke zeigen, wie wir Brunnenanlagen revitalisieren und in neue Formen des Erlebens verwandeln.</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+                    <article class="project-card">
+                        <h3>Onyx Marmor Quellstein</h3>
+                        <p>Hartnäckige Verschmutzungen gelöst und gesamtes Pflegepaket initiiert.</p>
+                        <div class="before-after" data-initial="0.5">
+                            <img src="images/onyxprevious.JPG" alt="Onyx Marmor Quellstein vor der Reinigung" class="before-image">
+                            <img src="images/onyxafter.JPG" alt="Onyx Marmor Quellstein nach der Reinigung" class="after-image">
+                            <input type="range" min="0" max="100" value="50" aria-label="Vorher-Nachher-Regler">
+                        </div>
+                    </article>
+                    <article class="project-card">
+                        <h3>Sölker Marmor Lichtbrunnen</h3>
+                        <p>Komplettreinigung und technische Wartung/Ersatz technischer Teile</p>
+                        <div class="before-after" data-initial="0.5">
+                            <img src="images/muchabefore.png" alt="Lichtbrunnen vor der Reinigung" class="before-image">
+                            <img src="images/muchaafter.png" alt="Lichtbrunnen nach der Reinigung" class="after-image">
+                            <input type="range" min="0" max="100" value="40" aria-label="Vorher-Nachher-Regler">
+                        </div>
+                    </article>
+                    <article class="project-card">
+                        <h3>Muhrbrunnen Künstlerobjekt</h3>
+                        <p>Komplettreinigung, Pumpentausch und ganzheitliche Wartung</p>
+                        <div class="before-after" data-initial="0.5">
+                            <img src="images/muhrbrprevious.jpg" alt="Muhrbrunnen im Zustand vor Wartung" class="before-image">
+                            <img src="images/muhrbrafter.jpg" alt="Muhrbrunnen im Zustand nach Wartung" class="after-image">
+                            <input type="range" min="0" max="100" value="60" aria-label="Vorher-Nachher-Regler">
+                        </div>
+                    </article>
+                </div>
+                <div class="mt-14 max-w-3xl mx-auto text-center">
+                    <button id="clients-toggle" class="btn-secondary inline-flex items-center gap-3">
+                        <span>Unsere langjährigen Wartungskunden</span>
+                    </button>
+                    <div id="clients-panel" class="collapsible mt-6">
+                        <div class="bg-brand-light/40 border border-brand/20 rounded-3xl p-8 text-left space-y-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+                                <div class="client-item"><i class="fa-solid fa-spa text-brand"></i> Otto Friedrich & Partner, seit 2007, 1080 Wien</div>
+                                <div class="client-item"><i class="fa-solid fa-building-columns text-brand"></i> Hausverwaltung Petri, 1010 Wien</div>
+                                <div class="client-item"><i class="fa-solid fa-hotel text-brand"></i> BGG Consult, 1070 Wien</div>
+                                <div class="client-item"><i class="fa-solid fa-church text-brand"></i> Zahnarzt DDr. Endre & Dr. Nora Steger, 1160 Wien</div>
+                                <div class="client-item"><i class="fa-solid fa-industry text-brand"></i> MG Mediengruppe GmbH, 1010 Wien</div>
+                                <div class="client-item"><i class="fa-solid fa-water text-brand"></i> Magistrat MA29, 1160 Wien</div>
+                                <div class="client-item"><i class="fa-solid fa-water text-brand"></i> AVL Ditest, 8020 Graz</div>
+                                <div class="client-item"><i class="fa-solid fa-water text-brand"></i> Wienerberger AG, 1100 Wien</div>
+                                <div class="client-item"><i class="fa-solid fa-water text-brand"></i> Oberbank AG, 1140 Wien</div>
+                                <div class="client-item"><i class="fa-solid fa-water text-brand"></i> Genossenschaft Mödling, 2340 Mödling</div>
+                            </div>
+                            <p class="text-xs uppercase tracking-[0.08em] text-graphite/50">Neben den gewerblichen Kunden zählen wir auch etliche Privatkunden zu unserem Kundenstamm, sowie zahlreiche bekannte Hotels und öffentliche Einrichtungen (Flughäfen,,).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="py-24 bg-brand-light/40" data-animate="fade-up">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto space-y-4 mb-12">
+                    <span class="section-eyebrow">FAQ</span>
+                    <h2 class="section-title">Antworten auf häufige Fragen</h2>
+                    <p class="section-subtitle">Transparenz schafft Vertrauen – hier beantworten wir die wichtigsten Fragen rund um Wartung, Reinigung und Zusammenarbeit.</p>
+                </div>
+                <div class="space-y-4">
+                    <article class="faq-item">
+                        <button class="faq-trigger" aria-expanded="false">
+                            <span>Welches Wasser sollte für den Betrieb von Zimmerbrunnen verwendet werden?</span>
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                        <div class="faq-content">
+                            <p><br>Grundsätzlich sollte Leitungswasser verwendet werden. Wenn der Wassertausch 1x monatlich durchgeführt wird und das Wasser nicht besonders hart ist (Grenzwert max 9dH°), empfehlen wir die Verwendung von Trinkwasser aus der Hausleitung.
+                               <br><br>Zusätzlich können auch Tischfilter zur Reduktion von Bakterien und Kalk verwendet werden. Auch der Einsatz von destilliertem und entkalktem Wasser ist möglich.
+                               <br><br>Zu empfehlen ist besonders auch Regenwasser, wenn Sie die Möglichkeit zum Sammeln haben. Alternativ ist unser Algizid (Ambassade) - verfügbar unter zimmerbrunnen.co.at verfügbar.<br><br><p>
+                        </div>
+                    </article>
+                    <article class="faq-item">
+                        <button class="faq-trigger" aria-expanded="false">
+                            <span>Wie oft soll ein Zimmerbrunnen gereinigt werden?</span>
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                        <div class="faq-content">
+                            <p><br>Wir sagen unseren Kunden immer: so oft wie möglich. Jeder Brunnen hat die Eigenschaft Feinstaub aus der Luft zu binden.<br><br>
+                            Aus diesem heraus können sich Bakterien bilden, die Sie dann über die Raumluft aufnehmen. <br>Deshalb empfehlen wir einen regelmäßigen Wassertausch und Reinigung des Brunnens.
+                        <br><br>Wie oft dies tatsächlich zu erfolgen hat, hängt primär vom Standort ab.<br>Richtwert 1x monatlich sollte der Brunnen gereinigt werden, respektive alle 3 Monate bei pflegeleichteren Brunnen.
+                    <br><br></p>
+                        </div>
+                    </article>
+                    <article class="faq-item">
+                        <button class="faq-trigger" aria-expanded="false">
+                            <span>Arbeiten Sie mit bestehenden Installationen und Herstellern?</span>
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                        <div class="faq-content">
+                            <p><br>Selbstverständlich. Wir kennen die meisten gängigen Systeme und Brunnenhersteller/Künstlerobjekte und können diese nach den höchsten Qualitätsstandard warten und pflegen.<br><br></p>
+                        </div>
+                    </article>
+                    <article class="faq-item">
+                        <button class="faq-trigger" aria-expanded="false">
+                            <span>Wie lange dauert eine Wartung/Reinigung/Restaurierung?</span>
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                        <div class="faq-content">
+                            <p><br>Je nach Komplexität der Anlage und der benötigten Arbeiten kann die Dauer einer Wartung/Reinigung/Restaurierung variieren. Prinzipiell können Sie mit einem Minimum von 3-4 Tagen bei ruhiger Auftragslage rechnen. <br>
+                            Bei nicht so komplexen und verschmutzten Brunnen kann die Dienstleistung oftmals auch direkt vor Ort bei der Kundschaft durchgeführt werden (1-5 Std.).<br><br></p>
+                        </div>
+                    </article>
+                    <article class="faq-item">
+                        <button class="faq-trigger" aria-expanded="false">
+                            <span>Bieten Sie Wartungsverträge an?</span>
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                        <div class="faq-content">
+                            <p><br>Ja, wir bieten Wartungsverträge an. Diese werden gerne von gewerblichen Kunden abgeschlossen und richten sich nach den benötigten Arbeiten und der Frequenz der Wartungen.<br><br></p>
+                        </div>
+                    </article>
+                    <article class="faq-item">
+                        <button class="faq-trigger" aria-expanded="false">
+                            <span>Kümmern Sie sich um die Ein- & Auswinterung von Brunnen?</span>
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                        <div class="faq-content">
+                            <p><br>Bei Außenanlagen/Gartenbrunnen ist die Einwinterung häufig ziemlich simpel. 
+                            <br>Nichtsdestotrotz bieten wir auch diese Dienstleistung an, wintern die Pumpe (sofern nicht frostsicher) ein/aus, saugen das Wasser des Beckens ab bzw. füllen Wasser ordnungsgemäß wieder ein und setzen das System außer bzw. wieder in Betrieb.<br><br></p>
+                        </div>
+                    </article>
+                    <article class="faq-item">
+                        <button class="faq-trigger" aria-expanded="false">
+                            <span>Welche Materialien behandeln Sie?</span>
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                        <div class="faq-content">
+                            <p><br>Sandstein, Kalkstein, Marmor, Granit, Edelstahl, Kunststoff, Glas - wir haben jahrelange Referenzen mit den diversesten Materialien und können diese nach den höchsten Qualitätsstandard warten und pflegen.<br><br></p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kontakt -->
+        <section id="contact" class="py-24 bg-white" data-animate="fade-up">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+                <div class="lg:col-span-7 space-y-8">
+                    <span class="section-eyebrow">Kontakt aufnehmen</span>
+                    <h2 class="section-title">Bereit, Ihren Brunnen zu beleben?</h2>
+                    <p class="section-subtitle">Schreiben Sie uns direkt – wir melden uns innerhalb eines Werktages mit einem ersten Vorschlag und einem unverbindlichen Beratungstermin.</p>
+                    <form id="contact-form" class="form-card space-y-6" novalidate>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <label class="form-field">
+                                <span>Vorname *</span>
+                                <input type="text" name="first_name" required placeholder="Ihr Vorname">
+                            </label>
+                            <label class="form-field">
+                                <span>Nachname *</span>
+                                <input type="text" name="last_name" required placeholder="Ihr Nachname">
+                            </label>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <label class="form-field">
+                                <span>E-Mail *</span>
+                                <input type="email" name="email" required placeholder="name@unternehmen.at">
+                            </label>
+                            <label class="form-field">
+                                <span>Telefon</span>
+                                <input type="tel" name="phone" placeholder="+43">
+                            </label>
+                        </div>
+                        <label class="form-field">
+                            <span>Gewünschte Leistung *</span>
+                            <select name="service" required>
+                                <option value="">Bitte wählen</option>
+                                <option value="reinigung">Brunnenreinigung</option>
+                                <option value="restaurierung">Restaurierung</option>
+                                <option value="wartung">Wartung & Service</option>
+                                <option value="winterdienst">Ein- & Auswinterung</option>
+                                <option value="beratung">Beratung & Planung</option>
+                            </select>
+                        </label>
+                        <label class="form-field">
+                            <span>Nachricht *</span>
+                            <textarea name="message" rows="4" required placeholder="Beschreiben Sie Ihr Projekt oder Ihre Fragestellung."></textarea>
+                        </label>
+                        <button type="submit" class="btn-primary w-full sm:w-auto">
+                            <span>Anfrage senden</span>
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                        <p id="form-feedback" class="text-sm font-medium text-brand-dark hidden">Vielen Dank! Ihre Nachricht wurde versendet.</p>
+                    </form>
+                </div>
+                <div class="lg:col-span-5 space-y-8">
+                    <div class="contact-card">
+                        <h3>Direkter Draht</h3>
+                        <ul class="space-y-4">
+                            <li class="contact-item"><i class="fa-solid fa-phone"></i> <a href="tel:+43722812345">+43 (0) 2236 90 8008</a></li>
+                            <li class="contact-item"><i class="fa-solid fa-envelope"></i> <a href="mailto:service@hingers-brunnenservice.de">office@revisage.com</a></li>
+                            <li class="contact-item"><i class="fa-solid fa-location-dot"></i> Grenzgasse 40/1, 2340 Mödling</li>
+                        </ul>
+                    </div>
+                    <div class="contact-card">
+                        <h3>Öffnungszeiten</h3>
+                        <ul class="space-y-2 text-sm">
+                            <li>Montag – Freitag: 09:00 – 16:00 Uhr</li>
+                            <li>Samstag: 09:00 - 14:00 Uhr</li>
+                        </ul>
+                    </div>
+                    <div class="contact-card">
+                        <h3>Folgen Sie dem Wasser</h3>
+                        <div class="flex items-center gap-4 text-xl text-brand">
+                            <a href="https://www.facebook.com/HingersBrunnenshop/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="social-icon"><img src="images/facebook-icon.svg" class="h-6 w-6"></a>
+                            <a href="https://www.instagram.com/revisagegmbh/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-icon"><img src="images/instagram-icon.svg" class="h-6 w-6"></a>
+                            <a href="https://www.youtube.com/channel/UC56Qj9INb-tklXJjZu0LMeQ" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="social-icon"><img src="images/youtube-icon.svg" class="h-6 w-6"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-graphite text-white pt-16 pb-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <!-- Column 1: Quick Links -->
+                <div>
+                    <img src="images/logo.jpg.png" alt="Hinger's Brunnenservice Logo" class="h-10 w-auto mb-4">
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-sm text-white/70">
+                        <li><a href="#hero" class="footer-link">Home</a></li>
+                        <li><a href="#services" class="footer-link">Dienstleistungen</a></li>
+                        <li><a href="#about" class="footer-link">Über uns</a></li>
+                        <li><a href="#projects" class="footer-link">Galerie</a></li>
+                        <li><a href="#faq" class="footer-link">FAQ</a></li>
+                        <li><a href="#contact" class="footer-link">Kontakt</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 2: Legal Links -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Informationen</h3>
+                    <ul class="space-y-2 text-sm text-white/70">
+                        <li><a href="#contact" class="footer-link">Kontakt</a></li>
+                        <li><a href="impressum.html" class="footer-link">Impressum</a></li>
+                        <li><a href="agb.html" class="footer-link">AGB</a></li>
+                        <li><a href="datenschutz.html" class="footer-link">Datenschutz</a></li>
+                        <li><a href="Ansprechpartner.html" class="footer-link">Ihre Ansprechpartner</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Company Info -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Revisage GmbH</h3>
+                    <div class="text-sm text-white/70 space-y-3">
+                        <p>Grenzgasse 40/1<br>2340 Mödling</p>
+                        <p>
+                            Telefon: <a href="tel:+432236908008" class="footer-link">+43 (0) 2236 90 8008</a><br>
+                            Email: <a href="mailto:office@revisage.com" class="footer-link">office@revisage.com</a>
+                        </p>
+                        <div>
+                            <strong>Öffnungszeiten:</strong>
+                            <p class="text-white/70">Mo–Fr: 09:00–16:00 Uhr & Sa: 09:00 - 14:00 Uhr</p>
+                        </div>
+                    </div>
+                    <p class="text-xs text-white/60 mt-6 italic">
+                        Förderndes Mitglied Galabau Verband Österreich und Mitglied des Handelsverband Österreich
+                    </p>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="border-t border-white/10 mt-12 pt-6 text-xs text-white/50 text-center">
+                © 2025 REVISAGE GMBH - ALLE RECHTE VORBEHALTEN
+            </div>
+        </div>
+    </footer>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.3/dist/gsap.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.3/dist/ScrollTrigger.min.js"></script>
+    <script defer src="js/main.js"></script>
+</body>
+</html>
