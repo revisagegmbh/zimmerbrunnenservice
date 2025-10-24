@@ -303,6 +303,70 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Process Slider -->
+                <div class="mt-24">
+                    <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                        <span class="section-eyebrow">Unser Prozess</span>
+                        <h2 class="section-title">Wie wir arbeiten</h2>
+                        <p class="section-subtitle">Von der ersten Analyse bis zum perfekten Ergebnis – ein Einblick in unsere Arbeitsweise.</p>
+                    </div>
+
+                    <div class="relative process-slider-container">
+                        <div class="process-slide active">
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center bg-brand-light/40 rounded-2xl p-8">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-graphite mb-3">1. Analyse & Beratung</h3>
+                                    <p class="text-graphite/80">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                </div>
+                                <div class="process-video-container">
+                                    <div class="rounded-lg overflow-hidden aspect-[1/1] bg-gray-200">
+                                        <video class="w-full h-full object-cover" loop muted playsinline>
+                                            <source src="images/edelstahl-titan.mp4" type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="process-slide">
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center bg-brand-light/40 rounded-2xl p-8">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-graphite mb-3">2. Sorgfältige Umsetzung</h3>
+                                    <p class="text-graphite/80">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                </div>
+                                <div class="process-video-container">
+                                    <div class="rounded-lg overflow-hidden aspect-[1/1] bg-gray-200">
+                                        <video class="w-full h-full object-cover" loop muted playsinline>
+                                            <source src="images/sölkersäule-schleiftechnik.MP4" type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="process-slide">
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center bg-brand-light/40 rounded-2xl p-8">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-graphite mb-3">3. Finale Übergabe</h3>
+                                    <p class="text-graphite/80">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                                </div>
+                                <div class="process-video-container">
+                                    <div class="rounded-lg overflow-hidden aspect-[1/1] bg-gray-200">
+                                        <video class="w-full h-full object-cover" loop muted playsinline>
+                                            <source src="https://cdn.pixabay.com/video/2023/07/26/173482-850497606_large.mp4" type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slider Controls -->
+                    <div class="flex items-center justify-center gap-4 mt-12">
+                        <button id="process-prev" class="slider-control" aria-label="Vorheriger Schritt"><i class="fa-solid fa-arrow-left"></i></button>
+                        <div id="process-dots" class="flex items-center gap-2"></div>
+                        <button id="process-next" class="slider-control" aria-label="Nächster Schritt"><i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -391,70 +455,11 @@
 
         <!-- Kontakt -->
         <section id="contact" class="py-24 bg-white" data-animate="fade-up">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
                 <div class="lg:col-span-7 space-y-8">
                     <span class="section-eyebrow">Kontakt aufnehmen</span>
                     <h2 class="section-title">Bereit, Ihren Brunnen zu beleben?</h2>
-                    <p class="section-subtitle">Schreiben Sie uns direkt – wir melden uns innerhalb eines Werktages mit einem ersten Vorschlag und einem unverbindlichen Beratungstermin.</p>
-                    <form id="contact-form" class="form-card space-y-6" novalidate>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                            <label class="form-field">
-                                <span>Vorname *</span>
-                                <input type="text" name="first_name" required placeholder="Ihr Vorname">
-                            </label>
-                            <label class="form-field">
-                                <span>Nachname *</span>
-                                <input type="text" name="last_name" required placeholder="Ihr Nachname">
-                            </label>
-                        </div>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                            <label class="form-field">
-                                <span>E-Mail *</span>
-                                <input type="email" name="email" required placeholder="name@unternehmen.at">
-                            </label>
-                            <label class="form-field">
-                                <span>Telefon</span>
-                                <input type="tel" name="phone" placeholder="+43">
-                            </label>
-                        </div>
-                        <label class="form-field">
-                            <span>Gewünschte Leistung *</span>
-                            <select name="service" required>
-                                <option value="">Bitte wählen</option>
-                                <option value="reinigung">Brunnenreinigung</option>
-                                <option value="restaurierung">Restaurierung</option>
-                                <option value="wartung">Wartung & Service</option>
-                                <option value="winterdienst">Ein- & Auswinterung</option>
-                                <option value="beratung">Beratung & Planung</option>
-                            </select>
-                        </label>
-                        <label class="form-field">
-                            <span>Nachricht *</span>
-                            <textarea name="message" rows="4" required placeholder="Beschreiben Sie Ihr Projekt oder Ihre Fragestellung."></textarea>
-                        </label>
-                        <button type="submit" class="btn-primary w-full sm:w-auto">
-                            <span>Anfrage senden</span>
-                            <i class="fa-solid fa-paper-plane"></i>
-                        </button>
-                        <p id="form-feedback" class="text-sm font-medium text-brand-dark hidden">Vielen Dank! Ihre Nachricht wurde versendet.</p>
-                    </form>
-                </div>
-                <div class="lg:col-span-5 space-y-8">
-                    <div class="contact-card">
-                        <h3>Direkter Draht</h3>
-                        <ul class="space-y-4">
-                            <li class="contact-item"><i class="fa-solid fa-phone"></i> <a href="tel:+43722812345">+43 (0) 2236 90 8008</a></li>
-                            <li class="contact-item"><i class="fa-solid fa-envelope"></i> <a href="mailto:service@hingers-brunnenservice.de">office@revisage.com</a></li>
-                            <li class="contact-item"><i class="fa-solid fa-location-dot"></i> Grenzgasse 40/1, 2340 Mödling</li>
-                        </ul>
-                    </div>
-                    <div class="contact-card">
-                        <h3>Öffnungszeiten</h3>
-                        <ul class="space-y-2 text-sm">
-                            <li>Montag – Freitag: 09:00 – 16:00 Uhr</li>
-                            <li>Samstag: 09:00 - 14:00 Uhr</li>
-                        </ul>
-                    </div>
+                    <p class="section-subtitle">Kontaktieren Sie uns direkt. Wir melden uns innerhalb eines Werktages mit einem ersten Vorschlag und einem unverbindlichen Beratungstermin.</p>
                     <div class="contact-card">
                         <h3>Folgen Sie dem Wasser</h3>
                         <div class="flex items-center gap-4 text-xl text-brand">
@@ -462,6 +467,24 @@
                             <a href="https://www.instagram.com/revisagegmbh/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-icon"><img src="images/instagram-icon.svg" class="h-6 w-6"></a>
                             <a href="https://www.youtube.com/channel/UC56Qj9INb-tklXJjZu0LMeQ" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="social-icon"><img src="images/youtube-icon.svg" class="h-6 w-6"></a>
                         </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-5 space-y-8">
+                    <div class="contact-card">
+                        <h3>Direkter Draht</h3>
+                        <ul class="space-y-4 mt-6">
+                            <li class="contact-item"><img src="images/phone-icon.svg" class="h-5 w-5"><a href="tel:+432236908008">+43 (0) 2236 90 8008</a></li>
+                            <li class="contact-item"><img src="images/email-icon.svg" class="h-5 w-5"><a href="mailto:office@revisage.com">office@revisage.com</a></li>
+                            <li class="contact-item"><img src="images/whatsapp-icon.svg" class="h-5 w-5"><a href="https://wa.me/4369910669470" target="_blank">WhatsApp Nachricht</a></li>
+                            <li class="contact-item"><img src="images/address-icon.svg" class="h-5 w-5"><fa-solid fa-location-dot></i> Grenzgasse 40/1, 2340 Mödling</li>
+                        </ul>
+                    </div>
+                    <div class="contact-card">
+                        <h3>Öffnungszeiten</h3>
+                        <ul class="space-y-2 text-base mt-4">
+                            <li>Montag – Freitag: 09:00 – 16:00 Uhr</li>
+                            <li>Samstag: 09:00 - 14:00 Uhr</li>
+                        </ul>
                     </div>
                 </div>
             </div>

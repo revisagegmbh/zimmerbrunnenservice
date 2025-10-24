@@ -560,6 +560,14 @@ body {
     color: #2f8aa4;
 }
 
+.contact-info-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-weight: 600;
+    color: #2b3a44;
+}
+
 .social-icon {
     width: 46px;
     height: 46px;
@@ -728,7 +736,55 @@ footer .border-white\/10 {
 
 .team-slider-track {
     display: flex;
-    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Process Slider */
+.process-slider-container {
+    position: relative;
+}
+
+.process-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+    pointer-events: none;
+}
+
+.process-slide.active {
+    position: relative; /* Take up space in the document flow */
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.process-video-container {
+    max-width: 100%; /* Full width on mobile */
+    margin: 0 auto; /* Center the video */
+}
+
+@media (min-width: 1024px) {
+    .process-video-container {
+        max-width: 70%; /* 30% smaller on desktop */
+    }
+}
+
+.process-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #6ec5d6; /* brand color */
+    opacity: 0.5;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    border: none;
+    padding: 0;
+}
+
+.process-dot.active {
+    opacity: 1;
 }
 
 .team-card-single {
