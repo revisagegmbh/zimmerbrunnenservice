@@ -43,40 +43,114 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Intersection Observer Animations
-    const animateElements = document.querySelectorAll('[data-animate], [data-animate-stagger]');
-    const groupMap = new Map();
+    const animateElements = Array.from(document.querySelectorAll('[data-animate], [data-animate-stagger]'));
+    const pendingAnimations = new Set(animateElements);
+    const supportsIntersectionObserver = 'IntersectionObserver' in window;
 
-    document.querySelectorAll('[data-animate-stagger]').forEach((el) => {
-        const parent = el.parentElement;
-        if (!groupMap.has(parent)) {
-            groupMap.set(parent, []);
+    const revealAnimatedElement = (element, delay = 0) => {
+        if (pendingAnimations.has(element)) {
+            pendingAnimations.delete(element);
         }
-        groupMap.get(parent).push(el);
-    });
-
-    groupMap.forEach((items) => {
-        items.forEach((item, index) => {
-            item.dataset.staggerIndex = String(index);
-        });
-    });
-
-    const ioOptions = {
-        threshold: 0.2,
-        rootMargin: '0px 0px -10% 0px'
+        if (delay > 0) {
+            window.setTimeout(() => element.classList.add('is-visible'), delay);
+        } else {
+            element.classList.add('is-visible');
+        }
     };
 
-    const animateObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
-            const delay = Number(entry.target.dataset.staggerIndex || 0) * 140;
-            setTimeout(() => {
-                entry.target.classList.add('is-visible');
-            }, delay);
-            observer.unobserve(entry.target);
-        });
-    }, ioOptions);
+    const startManualAnimationFallback = (() => {
+        let activated = false;
+        const events = ['scroll', 'resize', 'orientationchange'];
+        let rafId = null;
 
-    animateElements.forEach((el) => animateObserver.observe(el));
+        const detach = () => {
+            if (!activated) return;
+            activated = false;
+            events.forEach((event) => window.removeEventListener(event, scheduleCheck));
+            document.removeEventListener('visibilitychange', scheduleCheck);
+            if (rafId !== null) {
+                window.cancelAnimationFrame(rafId);
+                rafId = null;
+            }
+        };
+
+        const evaluate = () => {
+            rafId = null;
+            if (!pendingAnimations.size) {
+                detach();
+                return;
+            }
+
+            const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 0;
+            const activationThreshold = viewportHeight ? viewportHeight * 0.95 : 0;
+
+            pendingAnimations.forEach((element) => {
+                const rect = element.getBoundingClientRect();
+                if (rect.bottom >= 0 && rect.top <= activationThreshold) {
+                    revealAnimatedElement(element);
+                }
+            });
+
+            if (!pendingAnimations.size) {
+                detach();
+            }
+        };
+
+        const scheduleCheck = () => {
+            if (rafId !== null) return;
+            rafId = window.requestAnimationFrame(evaluate);
+        };
+
+        return () => {
+            if (activated || !pendingAnimations.size) return;
+            activated = true;
+            events.forEach((event) => window.addEventListener(event, scheduleCheck, { passive: true }));
+            document.addEventListener('visibilitychange', scheduleCheck);
+            scheduleCheck();
+            window.setTimeout(scheduleCheck, 400);
+            window.setTimeout(scheduleCheck, 1500);
+        };
+    })();
+
+    if (supportsIntersectionObserver) {
+        const groupMap = new Map();
+
+        Array.from(document.querySelectorAll('[data-animate-stagger]')).forEach((el) => {
+            const parent = el.parentElement;
+            if (!groupMap.has(parent)) {
+                groupMap.set(parent, []);
+            }
+            groupMap.get(parent).push(el);
+        });
+
+        groupMap.forEach((items) => {
+            items.forEach((item, index) => {
+                item.dataset.staggerIndex = String(index);
+            });
+        });
+
+        const ioOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -10% 0px'
+        };
+
+        const animateObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                const delay = Number(entry.target.dataset.staggerIndex || 0) * 140;
+                revealAnimatedElement(entry.target, delay);
+                observer.unobserve(entry.target);
+            });
+        }, ioOptions);
+
+        animateElements.forEach((el) => animateObserver.observe(el));
+
+        window.setTimeout(startManualAnimationFallback, 1800);
+        window.addEventListener('load', startManualAnimationFallback, { once: true });
+    } else {
+        animateElements.forEach((el) => revealAnimatedElement(el));
+        startManualAnimationFallback();
+    }
 
     // KPI Count-Up
     const counters = document.querySelectorAll('.kpi-number');
@@ -102,15 +176,19 @@ document.addEventListener('DOMContentLoaded', () => {
         requestAnimationFrame(step);
     };
 
-    const counterObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
-            animateCounter(entry.target);
-            observer.unobserve(entry.target);
-        });
-    }, { threshold: 0.6 });
+    if (supportsIntersectionObserver) {
+        const counterObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                animateCounter(entry.target);
+                observer.unobserve(entry.target);
+            });
+        }, { threshold: 0.6 });
 
-    counters.forEach((counter) => counterObserver.observe(counter));
+        counters.forEach((counter) => counterObserver.observe(counter));
+    } else {
+        counters.forEach((counter) => animateCounter(counter));
+    }
 
     // Services Slider
     const slider = document.getElementById('service-slider');
@@ -164,15 +242,19 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         };
 
-        nextBtn?.addEventListener('click', () => {
-            next();
-            startAuto();
-        });
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                next();
+                startAuto();
+            });
+        }
 
-        prevBtn?.addEventListener('click', () => {
-            prev();
-            startAuto();
-        });
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                prev();
+                startAuto();
+            });
+        }
 
         slider.addEventListener('mouseenter', stopAuto);
         slider.addEventListener('mouseleave', startAuto);
@@ -538,6 +620,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize Process Slider
     initProcessSlider();
+    normalizeProcessVideos();
 });
 
 function debounce(fn, delay = 200) {
@@ -634,4 +717,52 @@ const initProcessSlider = () => {
     // Initial state
     goToSlide(0);
     startAutoSlide();
+};
+
+const normalizeProcessVideos = () => {
+    const ua = navigator.userAgent || navigator.vendor || window.opera;
+    const isAndroid = /Android/i.test(ua);
+
+    if (!isAndroid) {
+        return;
+    }
+
+    const videos = Array.from(document.querySelectorAll('.process-video-container video[data-orientation="portrait"]'));
+
+    if (!videos.length) {
+        return;
+    }
+
+    const updateVideo = (video) => {
+        const intrinsicWidth = video.videoWidth || video.clientWidth || 1;
+        const intrinsicHeight = video.videoHeight || video.clientHeight || 1;
+
+        if (intrinsicWidth > intrinsicHeight) {
+            const scale = intrinsicHeight === 0 ? 1 : intrinsicWidth / intrinsicHeight;
+            video.style.setProperty('--video-rotate', '90deg');
+            video.style.setProperty('--video-scale', scale.toString());
+            video.classList.add('orientation-corrected');
+        } else {
+            video.style.setProperty('--video-rotate', '0deg');
+            video.style.setProperty('--video-scale', '1');
+            video.classList.remove('orientation-corrected');
+        }
+    };
+
+    const handleResize = debounce(() => {
+        videos.forEach(updateVideo);
+    }, 150);
+
+    videos.forEach((video) => {
+        const applyUpdate = () => updateVideo(video);
+
+        if (video.readyState >= 1) {
+            window.requestAnimationFrame(applyUpdate);
+        }
+
+        video.addEventListener('loadedmetadata', applyUpdate, { once: false });
+        video.addEventListener('loadeddata', applyUpdate, { once: false });
+    });
+
+    window.addEventListener('resize', handleResize);
 };

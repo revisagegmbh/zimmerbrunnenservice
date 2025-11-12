@@ -263,9 +263,10 @@ section, article, div {
     font-family: 'Playfair Display', serif;
     font-size: clamp(1.8rem, 5vw, 3.2rem);
     color: #2f8aa4;
-    display: block;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    display: inline-block;
+    max-width: 100%;
+    overflow: visible;
+    text-overflow: clip;
     white-space: nowrap;
 }
 
@@ -922,6 +923,26 @@ footer .border-white\/10 {
 .process-video-container {
     max-width: 100%; /* Full width on mobile */
     margin: 0 auto; /* Center the video */
+    position: relative;
+}
+
+.process-video-container video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform-origin: center center;
+    --video-rotate: 0deg;
+    --video-scale: 1;
+    transform: rotate(var(--video-rotate)) scale(var(--video-scale));
+    transition: transform 320ms ease;
+}
+
+.process-video-container video.orientation-corrected {
+    width: auto;
+    height: auto;
+    min-width: 100%;
+    min-height: 100%;
 }
 
 @media (min-width: 1024px) {
@@ -1045,10 +1066,10 @@ footer .border-white\/10 {
         position: fixed !important;
     }
     .pt-32 {
-        padding-top: 5rem; /* 80px */
+        padding-top: 3.5rem !important;
     }
     main.pt-32 {
-        padding-top: 80px; /* Adjust based on mobile header height */
+        padding-top: 1.75rem !important;
     }
 
     .btn-primary,
@@ -1114,6 +1135,37 @@ footer .border-white\/10 {
     .lg\\:grid-cols-12 {
         grid-template-columns: 1fr !important;
         gap: 1rem !important;
+    }
+
+    /* Reduziere vertikale Abstände zwischen den Sektionen um ca. 50 % */
+    .py-24 {
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+    }
+
+    .py-20 {
+        padding-top: 2.5rem !important;
+        padding-bottom: 2.5rem !important;
+    }
+
+    .mt-24 {
+        margin-top: 3rem !important;
+    }
+
+    .mt-16 {
+        margin-top: 2rem !important;
+    }
+
+    .mb-16 {
+        margin-bottom: 2rem !important;
+    }
+
+    .pt-24 {
+        padding-top: 3rem !important;
+    }
+
+    .pb-24 {
+        padding-bottom: 3rem !important;
     }
 }
 
@@ -1184,6 +1236,7 @@ footer .border-white\/10 {
     
     * {
         -webkit-hyphens: auto;
+        hyphens: auto;
         word-break: break-word;
         overflow-wrap: break-word;
     }
