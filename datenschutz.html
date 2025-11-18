@@ -8,28 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-    <script>
-        window.tailwind = window.tailwind || {};
-        window.tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: '#6ec5d6',
-                        'brand-dark': '#2f8aa4',
-                        'brand-light': '#e9f7fb',
-                        accent: '#9bd7c1',
-                        graphite: '#2b3a44'
-                    },
-                    fontFamily: {
-                        sans: ['Manrope', 'ui-sans-serif', 'system-ui'],
-                        display: ['Playfair Display', 'serif']
-                    }
-                }
-            }
-        };
-    </script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css" integrity="sha256-4FB6G1nyMbkQOAz/tYsJr1K4Rmo5FEMAuC8W9jAqTd8=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="css/custom.css">
 </head>
 <body class="bg-brand-light/40 text-graphite">
@@ -71,7 +51,7 @@
                     <i class="fa-solid fa-bars text-lg"></i>
                 </button>
             </div>
-            <div id="mobile-nav" class="lg:hidden overflow-hidden max-h-0 transition-[max-height] duration-500 ease-in-out">
+            <div id="mobile-nav" class="lg:hidden overflow-hidden max-h-0 transition-max-height duration-500 ease-in-out">
                 <button id="mobile-nav-close" aria-label="Mobiles Menü schließen">
                     <i class="fa-solid fa-times text-2xl text-graphite"></i>
                 </button>

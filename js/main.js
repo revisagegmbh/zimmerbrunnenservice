@@ -481,16 +481,21 @@ document.addEventListener('DOMContentLoaded', () => {
     if (window.gsap && window.ScrollTrigger) {
         gsap.registerPlugin(ScrollTrigger);
 
-        gsap.to('.hero-wave', {
-            y: -30,
-            ease: 'none',
-            scrollTrigger: {
-                trigger: '#hero',
-                start: 'top top',
-                end: 'bottom top',
-                scrub: true
-            }
-        });
+        const heroWave = document.querySelector('.hero-wave');
+        const heroSection = document.getElementById('hero');
+
+        if (heroWave && heroSection) {
+            gsap.to(heroWave, {
+                y: -30,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: heroSection,
+                    start: 'top top',
+                    end: 'bottom top',
+                    scrub: true
+                }
+            });
+        }
 
         gsap.utils.toArray('.project-card').forEach((card) => {
             gsap.fromTo(card, { y: 40 }, {

@@ -6,6 +6,109 @@
     --shadow-card: 0 25px 60px -30px rgba(43, 58, 68, 0.35);
 }
 
+/* =============================================
+   Tailwind CDN Fallback Utilities
+   ============================================= */
+.bg-brand\/10 {
+    background-color: rgba(110, 197, 214, 0.1);
+}
+
+.bg-brand-light {
+    background-color: #e9f7fb;
+}
+
+.bg-brand-light\/40 {
+    background-color: rgba(233, 247, 251, 0.4);
+}
+
+.bg-accent\/40 {
+    background-color: rgba(155, 215, 193, 0.4);
+}
+
+.bg-white\/90 {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.bg-white\/95 {
+    background-color: rgba(255, 255, 255, 0.95);
+}
+
+.bg-white\/60 {
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+.text-brand {
+    color: #6ec5d6;
+}
+
+.hover\:text-brand-dark:hover {
+    color: #2f8aa4;
+}
+
+.text-brand-dark {
+    color: #2f8aa4;
+}
+
+.text-graphite {
+    color: #2b3a44;
+}
+
+.text-graphite\/80 {
+    color: rgba(43, 58, 68, 0.8);
+}
+
+.text-graphite\/70 {
+    color: rgba(43, 58, 68, 0.7);
+}
+
+.text-graphite\/60 {
+    color: rgba(43, 58, 68, 0.6);
+}
+
+.text-graphite\/50 {
+    color: rgba(43, 58, 68, 0.5);
+}
+
+.border-brand\/20 {
+    border-color: rgba(110, 197, 214, 0.2) !important;
+}
+
+.border-brand\/25 {
+    border-color: rgba(110, 197, 214, 0.25) !important;
+}
+
+.border-white\/30 {
+    border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.transition-max-height {
+    transition-property: max-height;
+}
+
+.hero-overlay {
+    background-image: radial-gradient(circle at 20% -10%, rgba(110, 197, 214, 0.25), transparent 65%), radial-gradient(circle at 80% 110%, rgba(155, 215, 193, 0.35), transparent 60%);
+}
+
+.tracking-custom {
+    letter-spacing: 0.08em;
+}
+
+.aspect-square {
+    aspect-ratio: 1 / 1;
+}
+
+.backdrop-blur {
+    backdrop-filter: blur(18px);
+}
+
+.blur-3xl {
+    filter: blur(64px);
+}
+
+.mix-blend-overlay {
+    mix-blend-mode: overlay;
+}
+
 body {
     font-family: 'Manrope', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     background-color: #ffffff;
